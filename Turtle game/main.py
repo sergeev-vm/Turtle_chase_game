@@ -1,7 +1,10 @@
-# TODO: 2 turtles, different colour, same shape, one turtle runs away and it moved up and downward, left and right,
-# TODO: second turtle turns left and right with faster speed and chases the fist one.
-# TODO: turtles swap and than chaser becomes runner and vice versa
-# TODO: calculate seconds how turtles run and chase
+#TODO Counterdown 5-4-3-2-1 (rules & buttons)
+#TODO Add "Continue" option
+#TODO Fix algorithm after crash of turtles
+#TODO Add custom images for turtle
+#TODO Add option to shoot from one turtle to another
+#TODO Customize seconds counter
+#TODO Add AI (versus comp)
 import turtle
 import time
 from constants import *
