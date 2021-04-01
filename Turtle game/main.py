@@ -103,6 +103,20 @@ def catch_turtle():
 
 key_define(turtle_tom)
 screen.tracer(0)
+pre_game = True
+
+
+def pre_game_ends():
+    pre_game = False
+
+screen.onkey(key="q", fun=pre_game_ends)
+
+while pre_game:
+    time.sleep(TIME_REFRESH)
+for time_start in range(5, 0, -1):
+    turtle_tuffy.write(f"{time_start}")
+    time.sleep(1)
+    turtle_tuffy.clear()
 game_continues = True
 while game_continues:
     catch_turtle()
