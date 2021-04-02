@@ -5,3 +5,4 @@ TIME_REFRESH = 0.05
 TIME_DURATION = 30
 # I need a pull request
 FAKE_CONSTANT = 20
+RULE_LINE = "Space - Start\nW - Up\nS - Down"

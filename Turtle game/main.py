@@ -107,12 +107,17 @@ pre_game = True
 
 
 def pre_game_ends():
+    global pre_game
     pre_game = False
 
-screen.onkey(key="q", fun=pre_game_ends)
+screen.onkey(key='space', fun=pre_game_ends)
 
 while pre_game:
     time.sleep(TIME_REFRESH)
+
+    turtle_tuffy.write(f"{RULE_LINE}")
+
+turtle_tuffy.clear()
 for time_start in range(5, 0, -1):
     turtle_tuffy.write(f"{time_start}")
     time.sleep(1)
