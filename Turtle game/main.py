@@ -1,4 +1,3 @@
-#TODO Counterdown 5-4-3-2-1 (rules & buttons)
 #TODO Add "Continue" option
 #TODO Fix algorithm after crash of turtles
 #TODO Add custom images for turtle
@@ -123,21 +122,32 @@ for time_start in range(5, 0, -1):
     time.sleep(1)
     turtle_tuffy.clear()
 game_continues = True
-while game_continues:
-    catch_turtle()
-    time.sleep(TIME_REFRESH)
-    if turtle_tom.chaser:
-        turtle_tom.time_left -= TIME_REFRESH
-    if turtle_jerry.chaser:
-        turtle_jerry.time_left -= TIME_REFRESH
-    if turtle_tom.time_left < 0 or turtle_jerry.time_left < 0:
-        break
+big_game_continues = True
+while big_game_continues:
+
+    while game_continues:
+        catch_turtle()
+        time.sleep(TIME_REFRESH)
+        if turtle_tom.chaser:
+            turtle_tom.time_left -= TIME_REFRESH
+        if turtle_jerry.chaser:
+            turtle_jerry.time_left -= TIME_REFRESH
+        if turtle_tom.time_left < 0 or turtle_jerry.time_left < 0:
+            break
+        turtle_tuffy.clear()
+        turtle_tuffy.write(f"Jerry = {round(turtle_jerry.time_left, 1)}, Tom = {round(turtle_tom.time_left, 1)}")
+        screen.update()
     turtle_tuffy.clear()
-    turtle_tuffy.write(f"Jerry = {round(turtle_jerry.time_left, 1)}, Tom = {round(turtle_tom.time_left, 1)}")
-    screen.update()
-turtle_tuffy.clear()
-if turtle_tom.time_left > turtle_jerry.time_left:
-    turtle_tuffy.write(f"Jerry={round(turtle_jerry.time_left, 1)}, Tom={round(turtle_tom.time_left, 1)} \nTom wins!")
-else:
-    turtle_tuffy.write(f"Jerry={round(turtle_jerry.time_left, 1)}, Tom={round(turtle_tom.time_left, 1)} \nJerry wins!")
+    if turtle_tom.time_left > turtle_jerry.time_left:
+        turtle_tuffy.write(
+            f"Jerry={round(turtle_jerry.time_left, 1)}, Tom={round(turtle_tom.time_left, 1)} \nTom wins!")
+    else:
+        turtle_tuffy.write(
+            f"Jerry={round(turtle_jerry.time_left, 1)}, Tom={round(turtle_tom.time_left, 1)} \nJerry wins!")
+    answer = input("Would you like to start a new game? \n")
+    if answer == "yes":
+        turtle_tom.time_left = TIME_DURATION
+        turtle_jerry.time_left = TIME_DURATION
+
+
 screen.mainloop()
