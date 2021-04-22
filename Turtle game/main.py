@@ -148,6 +148,9 @@ while big_game_continues:
     if answer == "yes":
         turtle_tom.time_left = TIME_DURATION
         turtle_jerry.time_left = TIME_DURATION
+    else:
+        big_game_continues = False
+        exit(15)
 
 
 screen.mainloop()
