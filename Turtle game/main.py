@@ -55,8 +55,18 @@ turtle_tom = TurtleParent(pos_x=-60, pos_y=-60, t_color="grey")
 turtle_tom.chaser = True
 turtle_jerry = TurtleParent(pos_x=60, pos_y=60, t_color="purple")
 turtle_tuffy = TurtleParent(pos_x=-100, pos_y=230, t_color="black")
+turtle_yes = TurtleParent(pos_x=-30, pos_y=-150, t_color="green")
+turtle_no = TurtleParent(pos_x=30, pos_y=-150, t_color="red")
 turtle_tuffy.hideturtle()
+turtle_yes.hideturtle()
+turtle_no.hideturtle()
+turtle_yes.shape("circle")
+turtle_no.shape("circle")
 
+def print_coordinates(x, y):
+    print((x, y))
+
+screen.onclick(print_coordinates, btn=1)
 
 def key_define(chaser):
     if chaser == turtle_tom:
@@ -144,6 +154,10 @@ while big_game_continues:
     else:
         turtle_tuffy.write(
             f"Jerry={round(turtle_jerry.time_left, 1)}, Tom={round(turtle_tom.time_left, 1)} \nJerry wins!")
+
+    turtle_tuffy.goto(x=-100, y=-130)
+    turtle_tuffy.write(f"Would you like to start a new game?\n")
+
     answer = input("Would you like to start a new game? \n")
     if answer == "yes":
         turtle_tom.time_left = TIME_DURATION
