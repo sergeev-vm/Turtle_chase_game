@@ -92,6 +92,10 @@ def key_define(chaser):
         screen.onkeypress(key="j", fun=turtle_tom.turn_left)
         screen.onkeypress(key="l", fun=turtle_tom.turn_right)
 
+def turtle_distance(x, y):
+    if turtle_yes.distance(x, y) < turtle_no.distance(x, y) and turtle_yes.distance(x, y) < 15:
+        turtle_tom.time_left = TIME_DURATION
+        turtle_jerry.time_left = TIME_DURATION
 
 def catch_turtle():
     if turtle_tom.distance(turtle_jerry) < 20:
@@ -157,6 +161,9 @@ while big_game_continues:
 
     turtle_tuffy.goto(x=-100, y=-130)
     turtle_tuffy.write(f"Would you like to start a new game?\n")
+    turtle_yes.showturtle()
+    turtle_no.showturtle()
+    screen.update()
 
     answer = input("Would you like to start a new game? \n")
     if answer == "yes":
